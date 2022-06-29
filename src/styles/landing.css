@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.body-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+
+}
+
+.content-side {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.image-side {
+    width: 50%;
+}
+
+.home-img {
+    width: 31.25rem;
+    height: 31.25rem;
+}
+
+.btn-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.primary-btn {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.read-btn {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.read-btn:hover {
+    background-color: transparent;
+    text-decoration: 1px solid var(--secondary-color) underline;
+    color: var(--secondary-color);
+}
+
+.home-brand {
+    font-weight: 500;
+    font-size: 3.125rem;
+}
+
+.br-name {
+    color: var(--primary-color);
+    text-decoration: 1px solid var(--secondary-color) underline;
+}
+
+.home-para {
+    font-style: italic;
+    font-weight: 600;
+    font-size: larger;
+    line-height: 2rem;
+}
+
+.new-btn {
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    margin: 3px;
+    padding: 10px;
+    font-weight: 500;
+    text-decoration: 1px solid var(--secondary-color) underline;
+}

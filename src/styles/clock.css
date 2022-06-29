@@ -1,0 +1,65 @@
+.main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.25rem;
+}
+
+.main-content{
+    width: 70%;
+    height: 25rem;
+    display: flex;
+    background-color: var(--secondary-color);
+    border-radius: 1.25rem;
+    gap: 1.25rem;
+}
+
+.clock-side, .desc-side{
+    width: 50%;
+    padding: 1.25rem;
+    flex-direction: column;
+    display: flex;
+}
+
+.main-text{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    color: var(--whitesmoke-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+.task-name, .task-desc, .task-dur{
+    margin: 5px;
+}
+.clock{
+    height: 15.625rem;
+    width : 15.625rem;
+}
+
+.clock-side{
+    align-items: center;
+}
+
+.desc-side{
+    gap: 10px;
+}
+
+.clock-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2.5rem;
+}
+
+.cl-b{
+    padding: 0px;
+    margin: 0px;
+    color: var(--primary-color);
+}
+
+.primary-btn{
+    padding: 8px;
+}
