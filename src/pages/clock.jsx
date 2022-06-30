@@ -112,6 +112,7 @@ const Clock = () =>{
                         <button className="btn primary-btn" onClick={()=>setMode("work")}>Focus</button>
                         <button className="btn primary-btn" onClick={()=>setMode("break")}>Break</button>
                     </div>
+                    <p className="task-mode">Mode : {mode}</p>
                 </div>
             </main>
             </div>

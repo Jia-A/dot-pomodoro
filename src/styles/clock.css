@@ -12,6 +12,8 @@
     background-color: var(--secondary-color);
     border-radius: 1.25rem;
     gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .clock-side, .desc-side{
@@ -43,6 +45,7 @@
 
 .desc-side{
     gap: 10px;
+    align-self: auto;
 }
 
 .clock-btn{
@@ -62,4 +65,21 @@
 
 .primary-btn{
     padding: 8px;
+}
+
+.task-name{
+    margin: 10px;
+    font-size: 2rem;
+}
+.task-desc{
+    margin: 10px;
+    font-size: 1rem;
+}
+.task-dur{
+    font-size: small;
+}
+
+.task-mode{
+    text-decoration: underline;
+    font-style: italic;
 }
