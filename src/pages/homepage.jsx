@@ -2,13 +2,40 @@ import { useState } from "react";
 import { Navbar } from "../components/navbar";
 import Modal from "react-modal";
 import "../styles/homepage.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useTask } from "../context/task-context";
 
 const Homepage = () =>{
     const [ addModal, setAddModal ] = useState(false);
-
+    const [currentTask, setCurrentTask] =  useState({})
+    const { tasks, createTask, singleTask, setSingleTask, editing, setEditing, editTask, deleteTask } = useTask();
     const taskModalFunction = () =>{
         setAddModal(true);
+    }
+
+    const editTaskHandler = (task) =>{
+        setEditing(true);
+        setAddModal(true);
+        setSingleTask({...singleTask, name : task.name, duration : task.duration, description : task.description})
+        setCurrentTask(task)  
+        
+    }
+
+    const checkHandler = (task) =>{
+        if(editing===true){
+            console.log("edit task")
+            editTask(task.id)
+            setSingleTask({
+                name : "",
+                duration : 0,
+                description : "",
+            });
+            setEditing(false)
+        }
+        else{
+            console.log("create task")
+            createTask()
+        }
     }
 
     const customStyle = {
@@ -40,16 +67,16 @@ const Homepage = () =>{
                 <div className="task-box">
                     <span className="box-head">Your Tasks</span>
                     <ul className="task-list">
-                        <li className="task-item">
-                            <p>Exercise</p>
+                        {tasks.map((task)=>(
+                            <li className="task-item" key={task.id}>
+                            <p>{task.name}</p>
                             <div className="list-btn">
-                                <span className="btn"><i className="far fa-edit list-icon"></i></span>
-                                <span className="btn"><i className="far fa-trash list-icon"></i></span>
+                                <span className="btn" onClick={()=>editTaskHandler(task)}><i className="far fa-edit list-icon"></i></span>
+                                <span className="btn" onClick={()=>deleteTask(task.id)}><i className="far fa-trash list-icon"></i></span>
                             </div>
                         </li>
+                        ))}    
                     </ul>
-                    
-    
                     <button className="add btn" onClick={()=> taskModalFunction()}><i className="far fa-plus add-icon"></i></button>
                 </div>
             </main>
@@ -64,19 +91,24 @@ const Homepage = () =>{
                             <label htmlFor="task" className="label">
                                 Name
                             </label>
-                            <input type="text" className="modal-inp input" autoFocus required/>
+                            <input type="text" className="modal-inp input" value={singleTask.name} autoFocus onChange={(e) =>setSingleTask({ ...singleTask, name: e.target.value })}
+                            required/>
 
                             <label htmlFor="desc" className="label">
                                 Description
                             </label>
-                            <input type="text" className="modal-inp input" required/>
+                            <input type="text" className="modal-inp input" value={singleTask.description} 
+                            onChange={(e) =>setSingleTask({ ...singleTask, description: e.target.value })}
+                            required/>
 
                             <div className="time-div">
                                 <div>
                             <label htmlFor="time" className="label">
                                 Duration
                             </label>
-                            <input type="number" className=" input time-inp" required/>
+                            <input type="number" className=" input time-inp" value={singleTask.duration} 
+                            onChange={(e) =>setSingleTask({ ...singleTask, duration: e.target.value })}
+                            required/>
                             </div>
                             <div>
                             <label htmlFor="break" className="label">
@@ -85,10 +117,7 @@ const Homepage = () =>{
                             <input type="number" className="input time-inp"/>
                             </div>
                             </div>   
-                            <Link to="/clock">
-                            <button className="btn secondary-btn">Add Task</button>
-                            </Link>
-                            
+                            <button className="btn secondary-btn" onClick={()=>checkHandler(currentTask)}>Add Task</button> 
                         </main>
                     </Modal>
                 )
