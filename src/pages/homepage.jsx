@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Navbar } from "../components/navbar";
 import Modal from "react-modal";
 import "../styles/homepage.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTask } from "../context/task-context";
 
 const Homepage = () =>{
     const [ addModal, setAddModal ] = useState(false);
     const [currentTask, setCurrentTask] =  useState({})
     const { tasks, createTask, singleTask, setSingleTask, editing, setEditing, editTask, deleteTask } = useTask();
+    console.log(tasks)
     const taskModalFunction = () =>{
         setAddModal(true);
     }
@@ -16,7 +17,7 @@ const Homepage = () =>{
     const editTaskHandler = (task) =>{
         setEditing(true);
         setAddModal(true);
-        setSingleTask({...singleTask, name : task.name, duration : task.duration, description : task.description})
+        setSingleTask({...singleTask, name : task.name, duration : task.duration, description : task.description, break : task.break})
         setCurrentTask(task)  
         
     }
@@ -29,6 +30,7 @@ const Homepage = () =>{
                 name : "",
                 duration : 0,
                 description : "",
+                break : 0
             });
             setEditing(false)
         }
@@ -71,8 +73,11 @@ const Homepage = () =>{
                             <li className="task-item" key={task.id}>
                             <p>{task.name}</p>
                             <div className="list-btn">
+                                <Link to={`/clock/${task.id}`}>
+                                <span className="btn"><i class="fas fa-clock list-icon"></i></span>
+                                </Link>
                                 <span className="btn" onClick={()=>editTaskHandler(task)}><i className="far fa-edit list-icon"></i></span>
-                                <span className="btn" onClick={()=>deleteTask(task.id)}><i className="far fa-trash list-icon"></i></span>
+                                <span className="btn" onClick={()=>deleteTask(task.id)}><i className="far fa-trash-alt list-icon"></i></span>
                             </div>
                         </li>
                         ))}    
@@ -114,7 +119,8 @@ const Homepage = () =>{
                             <label htmlFor="break" className="label">
                                 Break
                             </label>
-                            <input type="number" className="input time-inp"/>
+                            <input type="number" className="input time-inp" value={singleTask.break}
+                            onChange={(e) =>setSingleTask({ ...singleTask, break: e.target.value })}/>
                             </div>
                             </div>   
                             <button className="btn secondary-btn" onClick={()=>checkHandler(currentTask)}>Add Task</button> 

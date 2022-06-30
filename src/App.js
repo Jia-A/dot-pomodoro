@@ -14,7 +14,8 @@ function App() {
       <Route path = '/homepage' element = { <Homepage/>} />
       <Route path = "/login" element = { <Login/> } />
       <Route path = '/signup' element = { <Signup/>} />
-      <Route path = '/clock' element = { <Clock/>} />
+      {/* <Route path = '/clock' element = { <Clock/>} /> */}
+      <Route path = '/clock/:taskID' element = { <Clock/>} />
       </Routes>
     </div>
   );
