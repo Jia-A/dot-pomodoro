@@ -12,7 +12,6 @@ const Navbar = () =>{
          </div>                   
          <div class="nav-btn">
                    <button class="btn icon-only-btn"><i class="fas fa-moon"></i></button>
-                   <button class="btn icon-only-btn"><i class="fas fa-sign-out"></i></button>
           </div>
       </nav>
     </div>

@@ -16,11 +16,8 @@ return(
                         className="br-name">DOT on TIME</span> and be a person of punctuality ...
                 </p>
                 <div className="btn-div">
-                    <Link to="/signup">
-                    <button className="btn primary-btn">Join Now</button>
-                    </Link>
-                    <Link to="/login">
-                    <button className="new-btn read-btn">Already have an account?</button>
+                    <Link to="/homepage">
+                    <button className="btn primary-btn">Start Now</button>
                     </Link>
                 </div>
             </section>
