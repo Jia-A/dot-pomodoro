@@ -112,3 +112,6 @@
 .cancel {
     cursor: pointer;
 }
+.box-head{
+    color: var(--primary-color);
+}
