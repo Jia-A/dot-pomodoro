@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.dark-theme {
+  background-color: #212121;
+  color: var(--secondary-color);
+  min-height : 100vh;
+}

@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { TaskProvider } from './context/task-context';
+import { ThemeProvider } from './context/theme-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <TaskProvider>
+        <ThemeProvider>
         <App />
+        </ThemeProvider>
       </TaskProvider>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css"
+import { useTheme } from "../context/theme-context";
 
 const Navbar = () =>{
+
+    const { theme, setTheme } = useTheme();
+
     return(
   <div class="nav-con">
       <nav class="nav-bar">
@@ -11,7 +15,10 @@ const Navbar = () =>{
              </Link>
          </div>                   
          <div class="nav-btn">
-                   <button class="btn icon-only-btn"><i class="fas fa-moon"></i></button>
+            { theme === "light" ? 
+                (  <button className="btn icon-only-btn" onClick={()=> setTheme("dark")}><i class="fas fa-moon"></i></button> ) : 
+                (  <button className="btn icon-only-btn" onClick={()=> setTheme("light")}><i class="fas fa-sun"></i></button> )
+            }
           </div>
       </nav>
     </div>
