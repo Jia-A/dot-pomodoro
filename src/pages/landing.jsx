@@ -8,6 +8,9 @@ return(
 <div className="App">
     <Navbar />
     <div className="body-div">
+    <div className="image-side">
+            <img src="./clock.svg" alt="hero-img" className="home-img" />
+        </div>
 
         <div className="content-side">
             <h1 className="home-brand">DOT on TIME</h1>
@@ -22,9 +25,7 @@ return(
                 </div>
             </section>
         </div>
-        <div className="image-side">
-            <img src="./clock.svg" alt="hero-img" className="home-img" />
-        </div>
+        
     </div>
 </div>
 );

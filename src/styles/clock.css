@@ -83,3 +83,13 @@
     text-decoration: underline;
     font-style: italic;
 }
+
+@media screen and (max-width : 710px){
+    .main-content{
+        flex-wrap: wrap;
+    }
+    .task-name{
+        font-size: 1.5rem;
+    }
+}
+
