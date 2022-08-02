@@ -35,8 +35,14 @@ const Homepage = () =>{
             setEditing(false)
         }
         else{
+            if(singleTask.duration>0 && singleTask.break>0){
             console.log("create task")
-            createTask()
+            createTask();
+            setAddModal(false)
+            }
+            else{
+                alert("Enter valid duration and break")
+            }
         }
     }
 
@@ -111,7 +117,7 @@ const Homepage = () =>{
                             <label htmlFor="time" className="label">
                                 Duration
                             </label>
-                            <input type="number" className=" input time-inp" value={singleTask.duration} 
+                            <input type="number" className="input time-inp" min="0" value={singleTask.duration} 
                             onChange={(e) =>setSingleTask({ ...singleTask, duration: e.target.value })}
                             required/>
                             </div>
@@ -119,7 +125,7 @@ const Homepage = () =>{
                             <label htmlFor="break" className="label">
                                 Break
                             </label>
-                            <input type="number" className="input time-inp" value={singleTask.break}
+                            <input type="number" className="input time-inp" min="0" value={singleTask.break}
                             onChange={(e) =>setSingleTask({ ...singleTask, break: e.target.value })}/>
                             </div>
                             </div>   

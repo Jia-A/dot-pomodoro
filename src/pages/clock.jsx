@@ -104,8 +104,11 @@ const Clock = () =>{
                         <p className="task-desc">
                             {currentTask.description}
                         </p>
-                        <span className="task-dur">
-                            {currentTask.duration} minutes
+                        <span className="task-dur"> Duration : 
+                             {currentTask.duration} minutes
+                        </span>
+                        <span className="task-dur"> Break : 
+                             {currentTask.break} minutes
                         </span>
                     </section>
                     <div className="decs-btn">
